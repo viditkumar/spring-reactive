@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb  # JDBC URL for H2 in-memory database
+    username: sa  # Default username
+    password: password  # Default password
+    driver-class-name: org.h2.Driver  # Specify H2 driver class name for JDBC compatibility
+
+  r2dbc:
+    url: r2dbc:h2:mem:///testdb  # R2DBC URL for H2 in-memory database
+    username: sa  # Default username
+    password: password  # Default password
+  h2:
+    console:
+      enabled: true
+      path: /h2-console  # Customize the path if needed

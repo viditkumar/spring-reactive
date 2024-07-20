@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group = 'org.reac'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+
+    implementation 'org.springframework.boot:spring-boot-starter-webflux' // For WebFlux support
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc' // Spring Data R2DBC starter
+    implementation 'io.r2dbc:r2dbc-h2' // Replace with your R2DBC driver of choice, e.g., r2dbc-postgresql, r2dbc-mysql
+    implementation 'io.projectreactor:reactor-core' // Required for reactive programming
+
+    implementation 'io.swagger.core.v3:swagger-annotations-jakarta:2.2.7'
+    compileOnly 'org.mapstruct:mapstruct:1.5.5.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
+}
