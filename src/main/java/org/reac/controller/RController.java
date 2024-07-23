@@ -10,6 +10,7 @@ import org.reac.entity.Users;
 import org.reac.model.RDTO;
 import org.reac.model.response.RDTOResponse;
 import org.reac.service.RService;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -33,7 +34,7 @@ public class RController {
     })
     @GetMapping("/getUserById")
     public Mono<RDTOResponse> getUserById() {
-        Mono<RDTO> user = rService.getUserById("1234");
+        Mono<RDTO> user = rService.getUserById("123");
         return user.map(u -> {
             RDTOResponse rdtoResponse = new RDTOResponse(u, 200);
             rdtoResponse.setMessage("Success");
